@@ -51,6 +51,52 @@ This project integrates with the **base-agent** submodule, which provides shared
 - **Easy Development**: Inherit from BaseAgent class for rapid development
 - **Standardized APIs**: Consistent interface across all specialized agents
 
+## Sources Collection
+
+The sourcing agent maintains a comprehensive database of cannabis industry suppliers organized by state and category:
+
+### Source Categories
+- **Preferred Sources**: Featured suppliers with proven track records (e.g., Extract Consultants)
+- **Materials Suppliers**: Genetics, nutrients, packaging, and growing media
+- **Equipment Suppliers**: Lighting, HVAC, irrigation, environmental controls
+- **National Suppliers**: Companies serving multiple states or nationwide
+- **State-Specific Suppliers**: Local suppliers organized by legal cannabis states
+
+### Current Coverage
+- **69 Total Sources** across 20+ legal cannabis states
+- **Preferred Sources**: 1 (Extract Consultants)
+- **Materials Suppliers**: Genetics, nutrients, packaging, growing media
+- **Equipment Suppliers**: Lighting, ventilation, environmental controls, grow systems
+
+### Source Data Structure
+Each source includes:
+- Company name and website URL
+- Category and product offerings
+- Location and service areas
+- Preferred status indicator
+- Contact information (when available)
+- Certifications and compliance information
+
+### Web Scraping Capabilities
+The agent includes a sophisticated web scraper (`scrape_sources.py`) that can:
+- Extract product information from supplier websites
+- Collect contact information and locations
+- Identify certifications and compliance details
+- Rate-limit requests to be respectful to websites
+- Save structured data for agent use
+
+### Usage
+```bash
+# View all sources without scraping
+python scrape_sources.py --dry-run
+
+# Scrape all sources
+python scrape_sources.py
+
+# Scrape with custom settings
+python scrape_sources.py --max-concurrent 3 --output results.json
+```
+
 ## Knowledge Base
 
 The agent uses a comprehensive RDF/OWL knowledge base (`rag/knowledge_base.ttl`) that includes:
@@ -118,12 +164,25 @@ sourcing-agent/
 │   ├── templates/
 │   │   └── dashboard.html   # Web dashboard template
 │   └── server.py            # Flask web server for agent monitoring
+├── sources/                  # Cannabis industry sources collection
+│   └── sources.json         # Comprehensive supplier database by state
 ├── rag/
 │   └── knowledge_base.ttl    # Semantic knowledge base
-├── src/                      # Source code (to be implemented)
+├── src/                      # Source code
+│   ├── core/                # Core agent functionality
+│   │   ├── knowledge_base.py # RDF/OWL knowledge base parser
+│   │   └── sourcing_agent.py # Main sourcing agent class
+│   ├── utils/               # Utility modules
+│   │   └── scraper.py       # Web scraper for supplier data
+│   ├── tools/               # Agent tools (to be implemented)
+│   ├── api/                 # API endpoints (to be implemented)
+│   └── __init__.py          # Package initialization
 ├── tests/                    # Test suite (to be implemented)
 ├── docs/                     # Documentation (to be implemented)
 ├── .gitmodules              # Git submodule configuration
+├── main.py                   # Main entry point
+├── scrape_sources.py         # Source scraping CLI tool
+├── requirements.txt          # Python dependencies
 └── README.md                 # This file
 ```
 
