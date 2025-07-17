@@ -1,3 +1,6 @@
 [submodule "base-agent"]
 	path = base-agent
 	url = https://github.com/F8ai/base-agent.git
+[submodule "data"]
+	path = data
+	url = https://github.com/F8ai/sourcing-data.git
