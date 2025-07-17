@@ -1,7 +1,3 @@
-"""
-Formul8 Sourcing Agent - Source Package
-"""
-
-__version__ = "1.0.0"
-__author__ = "Formul8 (F8ai)"
-__description__ = "Intelligent sourcing agent for cannabis industry supply chain management" 
+version https://git-lfs.github.com/spec/v1
+oid sha256:22842ba4ae8a614c1c733907aa359b41f3c5b648b66308fed6457438340039cf
+size 194
