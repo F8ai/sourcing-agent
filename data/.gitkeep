@@ -1,0 +1,8 @@
+# Data Submodule Placeholder
+
+This directory will contain the data submodule once properly initialized.
+
+To initialize the data submodule, run:
+```bash
+git submodule update --init --recursive
+```
